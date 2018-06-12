@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/stilos.css">
+	<meta charset="UTF-8">
+	<title>Proyecto parallax</title>
+	<style type="text/css">
+
+
+
+
+		.container{
+			height: 600vh;
+			width: 800px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.cell{
+			display: inline-block;
+			margin-top: 290px;
+			position: relative;
+			transition: .1s;
+		}
+
+		.shape{
+background-image: url(shape.jpg);
+width: 128px;
+height: 128px;
+position: absolute;
+top :75px;
+right: 161px;
+background-position: -54px;
+-webkit-mask-image:  url(apple.png);
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		
+	<figure class="cell" id= "cell">
+		<img src="cell.jpg" alt="">
+		<div class="shape" id= "mask"></div>
+	</figure>
+	</section>
+	<script>
+
+		const $cell = document.getElementById('cell');
+
+		const $mask = document.getElementById('mask');
+
+		window.addEventListener('scroll', function(e){
+
+			console.log(window.scrollY);
+
+			//$cell.style.marginTop = window.scrollY + 'px';
+
+			var position = 54 +window.scrollY;
+
+			$mask.style.backgroundPosition = "-" +window.scrollY + 'px' ;
+
+				$cell.style.transform ='rotate(-'+ position*0.09 + 'deg)';
+
+		});
+	</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
